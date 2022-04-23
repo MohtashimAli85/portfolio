@@ -1,4 +1,6 @@
 module.exports = {
+  mode: "jit",
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -12,8 +14,8 @@ module.exports = {
       "rangoon-green": "#1B1B1B",
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      sans: ["Sen", "sans-serif"],
+      // serif: ["Merriweather", "serif"],
     },
   },
   plugins: [],
