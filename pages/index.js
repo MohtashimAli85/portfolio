@@ -6,9 +6,9 @@ import Layout from "../components/layout";
 export default function Home() {
   return (
     <Layout>
-      <h1 className="text-center text-xl font-semibold text-red-500">
+      {/* <h1 className="text-center text-xl font-semibold text-red-500">
         Hello World
-      </h1>
+      </h1> */}
     </Layout>
   );
 }
