@@ -9,7 +9,13 @@ function HeroSection() {
     <div className="grid grid-cols-[minmax(285px,_1fr)_minmax(480px,_1fr)_minmax(285px,_1fr)] gap-x-8 grid-rows-2 mx-3 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl sm:mx-auto py-2">
       <About description="I am an ever-learning Software Engineer Student. I specialize in developing static and dynamic websites having responsive frontend design.Currently learning React JS library." />
       <div className="row-span-2 w-full">
-        <Image src="/Center.svg" alt="hero image" width={480} height={592} />
+        <Image
+          src="/Center.svg"
+          alt="hero image"
+          width={480}
+          height={592}
+          priority
+        />
       </div>
       <Skill
         skills={[

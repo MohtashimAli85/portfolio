@@ -8,6 +8,12 @@ import HeroSection from "../components/herosection/herosection";
 export default function Home() {
   return (
     <Layout>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+        />
+      </Head>
       <Header
         title="Mohtashim Ali"
         role="Frontend Developer"

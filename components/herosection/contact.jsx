@@ -19,6 +19,7 @@ function Contact({ contacts }) {
                   width="25"
                   height="25"
                   alt={`${e.icon} icon`}
+                  priority
                 />
                 <a
                   href={e.href}
