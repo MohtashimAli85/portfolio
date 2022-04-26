@@ -3,7 +3,7 @@ import Image from "next/image";
 function Contact({ contacts }) {
   return (
     <div>
-      <h1 className="text-aqua font-bold text-lg leading-[21.66px] mb-5">
+      <h1 className="text-primary font-bold text-lg leading-[21.66px] mb-5">
         CONTACT
       </h1>
       <ul className="flex flex-col gap-[10px]">
@@ -23,7 +23,7 @@ function Contact({ contacts }) {
                 />
                 <a
                   href={e.href}
-                  className="dark:text-white text-base leading-[19.25px]"
+                  className="dark:text-white text-base leading-[19.25px] font-sans"
                 >
                   {e.contact}
                 </a>
