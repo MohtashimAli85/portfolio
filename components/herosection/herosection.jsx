@@ -4,7 +4,9 @@ import Skill from "./skill";
 import Contact from "./contact";
 import Lang from "./lang";
 import Image from "next/image";
+import Link from "next/link";
 import BottomBlob from "../blobs/bottomblob";
+
 function HeroSection() {
   return (
     <div className="hero-section relative">
@@ -16,7 +18,7 @@ function HeroSection() {
               src="/Center.svg"
               alt="hero image"
               width={480}
-              height={592}
+              height={590}
               priority
             />
           </div>
@@ -48,19 +50,23 @@ function HeroSection() {
               },
               {
                 icon: "linkedin",
-                contact: "linkedin.com/in/mohtashim-ali85",
-                href: "linkedin.com/in/mohtashim-ali85",
+                contact: "Linkdein: Mohtashim Ali",
+                href: "https://www.linkedin.com/in/mohtashim-ali85?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0UBxIIhvSTmBE01WL8sf3Q%3D%3D",
               },
             ]}
           />
           <Lang langs={["English", "Urdu"]} />
           <div className="col-span-3 justify-self-center mt-3">
-            <Image
-              src="/downward-arrow.svg"
-              width={50}
-              height={50}
-              alt="downward arrow icon"
-            />
+            <Link href="#projects">
+              <a>
+                <Image
+                  src="/downward-arrow.svg"
+                  width={50}
+                  height={50}
+                  alt="downward arrow icon"
+                />
+              </a>
+            </Link>
           </div>
         </div>
         <div className="bg-primary/20 h-1"></div>
