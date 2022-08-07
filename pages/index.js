@@ -8,7 +8,7 @@ import Projects from "../components/projects";
 // import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const [height, setHeight] = useState();
+  const [height, setHeight] = useState("full-height lg:mt-0 lg:gap-0");
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
