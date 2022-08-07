@@ -15,7 +15,7 @@ export default function Home() {
       const height = screen.height;
       console.log(height);
       if (height <= 1080) {
-        setHeight("full-height md:mt-0 md:gap-0");
+        setHeight("full-height lg:mt-0 lg:gap-0");
       } else {
         setHeight("");
       }
