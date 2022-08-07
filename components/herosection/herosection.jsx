@@ -10,11 +10,11 @@ import BottomBlob from "../blobs/bottomblob";
 function HeroSection() {
   return (
     <div className="hero-section relative basis-[80%]">
-      <div className=" mx-3 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl sm:mx-auto  ">
+      <div className=" mx-8 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl sm:mx-auto  ">
         <div className="grid grid-cols-1 sm:grid-cols-[minmax(285px,_1fr)_minmax(480px,_1fr)_minmax(285px,_1fr)] gap-x-8 gap-y-4 sm:grid-rows-2 ">
           <About description="I am an ever-learning Software Engineer Student. I specialize in developing static and dynamic websites having responsive frontend design." />
-          <div className=" row-span-2 ">
-            <div className="animate-float min-w-[350px] min-h-[400px]  relative w-[30vw] h-[30vh] max-w-[400px] max-h-[550px] hidden sm:block text-center  mx-auto">
+          <div className=" row-span-2 hidden sm:block">
+            <div className="animate-float min-w-[350px] min-h-[400px]  relative w-[30vw] h-[30vh] max-w-[400px] max-h-[550px]  text-center  mx-auto">
               <Image
                 src="/Center.svg"
                 alt="hero image"
@@ -39,7 +39,19 @@ function HeroSection() {
               "Problem Solving",
             ]}
           />
-
+          <div className=" row-span-2 block sm:hidden">
+            <div className="animate-float min-w-[350px] min-h-[400px]  relative w-[30vw] h-[30vh] max-w-[400px] max-h-[550px]  text-center  mx-auto">
+              <Image
+                src="/Center.svg"
+                alt="hero image"
+                width={490}
+                height={550}
+                priority
+                // objectFit="contain"
+                layout="responsive"
+              />
+            </div>
+          </div>
           <Contact
             contacts={[
               {
