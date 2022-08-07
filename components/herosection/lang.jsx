@@ -2,7 +2,7 @@ import React from "react";
 
 function Lang({ langs }) {
   return (
-    <div className="text-right">
+    <div className="sm:text-right">
       {" "}
       <h1 className="text-primary font-bold text-lg leading-[21.66px] mb-5">
         LANGUAGEs
