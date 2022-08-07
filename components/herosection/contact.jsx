@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 function Contact({ contacts }) {
   return (
-    <div>
-      <h1 className="text-primary font-bold text-lg leading-[21.66px] mb-5">
+    <div className="self-end">
+      <h1 className="text-primary font-bold text-lg lg:text-xl leading-[21.66px] mb-5">
         CONTACT
       </h1>
-      <ul className="flex flex-col gap-[10px]">
+      <ul className="flex flex-col gap-[6px]">
         {contacts &&
           contacts.map((e, i) => {
             return (

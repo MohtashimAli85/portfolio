@@ -3,15 +3,15 @@ import React from "react";
 function Skill({ skills }) {
   return (
     <div className="sm:text-right">
-      <h1 className="text-primary font-bold text-lg leading-[21.66px] mb-5">
+      <h1 className="text-primary font-bold text-lg xl:text-xl leading-[21.66px] mb-5">
         SKILLS
       </h1>
-      <div className="text-lg  leading-[21.66px] dark:text-white">
+      <ul className="text-lg xl:text-xl  leading-[21.66px] dark:text-white space-y-[3px]">
         {skills &&
           skills.map((e, i) => {
-            return <p key={`${e}${i}`}>{e}</p>;
+            return <li key={`${e}${i}`}>{e}</li>;
           })}
-      </div>
+      </ul>
     </div>
   );
 }

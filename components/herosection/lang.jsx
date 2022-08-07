@@ -2,17 +2,17 @@ import React from "react";
 
 function Lang({ langs }) {
   return (
-    <div className="sm:text-right">
+    <div className="sm:text-right self-end min-h-[153px]">
       {" "}
-      <h1 className="text-primary font-bold text-lg leading-[21.66px] mb-5">
+      <h1 className="text-primary font-bold text-lg xl:text-xl leading-[21.66px] mb-5">
         LANGUAGEs
       </h1>
-      <div className="text-lg leading-[24.63px] dark:text-white ">
+      <ul className="text-lg xl:text-xl leading-[24.63px] dark:text-white space-y-1">
         {langs &&
           langs.map((e, i) => {
-            return <p key={`${e}${i}`}>{e}</p>;
+            return <li key={`${e}${i}`}>{e}</li>;
           })}
-      </div>
+      </ul>
     </div>
   );
 }
