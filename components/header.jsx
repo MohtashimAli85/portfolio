@@ -20,7 +20,7 @@ function Header({ title, role, country }) {
   console.log("Header rendered");
   return (
     <>
-      <div className="dark:text-white text-center mt-4 mb-16">
+      <div className="dark:text-white text-center ">
         <Heading title={title} />
         <Heading title={role} style="my-[5px]" />
         <p className="text-2xl dark:text-white/90 leading-7">

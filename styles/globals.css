@@ -4,3 +4,6 @@
 html {
   scroll-behavior: smooth;
 }
+.full-height {
+  min-height: calc(100vh - 56px);
+}
