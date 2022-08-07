@@ -15,7 +15,7 @@ export default function Home() {
       const height = screen.height;
       console.log(height);
       if (height <= 1080) {
-        setHeight("full-height");
+        setHeight("full-height md:mt-0 md:gap-0");
       } else {
         setHeight("");
       }
@@ -32,7 +32,9 @@ export default function Home() {
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
         />
       </Head>
-      <header className={`h-[100%] ${height} flex justify-between flex-col`}>
+      <header
+        className={`h-[100%] ${height} flex justify-between flex-col gap-10 mt-20 `}
+      >
         <Header
           title="Mohtashim Ali"
           role="Frontend Developer"
