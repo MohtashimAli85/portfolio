@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 function TopBlob() {
   return (
-    <div className={`absolute top-16 left-20`}>
+    <div className={`absolute top-16 left-20 hidden sm:block`}>
       <Image
         src="/top-left-blob.svg"
         width={164}
