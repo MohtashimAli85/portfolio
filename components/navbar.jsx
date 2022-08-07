@@ -7,7 +7,12 @@ const Navbar = () => {
         <h1 className="dark:text-white text-4xl">MA</h1>
         <ul className="dark:text-primary flex justify-between gap-7 text-lg leading-6">
           <li>
-            <a href="#">Work</a>
+            <a
+              href="#projects"
+              className="after:content-[''] after:block after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-200 hover:after:w-full"
+            >
+              Work
+            </a>
           </li>
           <li>
             <a href="#">Resume</a>
