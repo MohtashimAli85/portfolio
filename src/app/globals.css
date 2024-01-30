@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html{
+    @apply h-full 
+  }
+  body{
+    @apply text-white border border-divider rounded-lg h-full
+  }
+}
