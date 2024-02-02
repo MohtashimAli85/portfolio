@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className='flex flex-col items-center justify-between p-24'>
+    <div className='py-24 ml-[20%] mr-[15%] max-w-[65%] mx-auto'>
       Hello World
-    </main>
+    </div>
   );
 }
