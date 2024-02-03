@@ -50,7 +50,7 @@ const MobileMenu = (props: Props) => {
         style={{
           opacity: open ? 1 : 0
         }}
-        className={`bg-primary  top-[57px] -z-10 absolute transition-opacity  h-[calc(100vh-109px)] inset-0 md:hidden [&>li]:border-b [&>li]:border-b-divider`}
+        className={`bg-primary  top-[57px] -z-10 absolute transition-opacity  h-[calc(100dvh-109px)] inset-0 md:hidden [&>li]:border-b [&>li]:border-b-divider`}
       >
         {mobileLinks.map((href) => (
           <Item href={href} key={href} onClick={handleClose} />
