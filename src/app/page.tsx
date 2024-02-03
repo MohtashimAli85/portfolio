@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className='py-24 ml-[20%] mr-[15%] max-w-[65%] mx-auto'>
+    <div className='py-24 md:ml-[20%] md:mr-[15%] max-w-[65%] mx-auto'>
       Hello World
     </div>
   );

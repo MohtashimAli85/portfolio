@@ -1,8 +1,8 @@
 export default function AboutMe() {
     return (
-      <main className='py-24 max-w-[65%] mx-auto'>
+        <div className='py-24 md:ml-[20%] md:mr-[15%] max-w-[65%] mx-auto'>
         about me
-      </main>
+      </div>
     );
   }
   
