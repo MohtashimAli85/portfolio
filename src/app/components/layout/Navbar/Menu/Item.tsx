@@ -10,16 +10,16 @@ export const names = {
 };
 export const links = Object.keys(names).toSpliced(-1) as Props['href'][];
 export const mobileLinks = Object.keys(names) as Props['href'][];
-interface Props {
+interface Props extends React.LiHTMLAttributes<HTMLLIElement> {
   href: keyof typeof names;
 }
-const Item: FC<Props> = ({ href }) => {
+const Item: FC<Props> = ({ href, ...rest }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
-  console.log({ isActive });
   return (
     <li
-      className={`grid place-content-center border-b-[3px] last:border-r last:border-r-divider ${
+      {...rest}
+      className={`grid md:place-content-center border-b-[3px] last:border-r last:border-r-divider ${
         isActive
           ? 'border-pale-orange'
           : ' border-transparent text-secondary-dark hover:bg-primary-light'
