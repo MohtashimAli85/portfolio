@@ -17,6 +17,7 @@ const MobileMenu = ({ open, handleClose }: Props) => {
     if (open) {
       const showMenu = () => {
         if (menuElement) {
+          menuElement.classList.add('z-20');
           menuElement.classList.remove('-z-10');
         }
       };
@@ -26,10 +27,11 @@ const MobileMenu = ({ open, handleClose }: Props) => {
     } else {
       const hideMenu = () => {
         if (menuElement) {
+          menuElement.classList.remove('z-20');
           menuElement.classList.add('-z-10');
         }
       };
-      const timeoutId = setTimeout(hideMenu, 1000);
+      const timeoutId = setTimeout(hideMenu, 1200);
 
       return () => clearTimeout(timeoutId);
     }
@@ -47,7 +49,7 @@ const MobileMenu = ({ open, handleClose }: Props) => {
       ></div>
       <ul
         ref={menuRef}
-        className={`  top-[57px] z-20 absolute transition-opacity  h-[calc(100%-109px)] inset-0 md:hidden grid place-content-center gap-4`}
+        className={`   top-[57px]  absolute -z-10  h-[calc(100%-109px)] inset-0 md:hidden grid place-content-center gap-4`}
       >
         {mobileLinks.map((href, index) => (
           <Item
