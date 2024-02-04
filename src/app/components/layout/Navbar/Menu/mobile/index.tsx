@@ -1,12 +1,15 @@
+'use client';
 import { Button } from '@/app/components/ui/Button';
 import MenuIcon from '@/app/icons/social/MenuIcon';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Item, { mobileLinks } from '../Item';
 
-type Props = {};
+type Props = {
+  open: boolean;
+  handleClose: () => void;
+};
 
-const MobileMenu = (props: Props) => {
-  const [open, setOpen] = useState(false);
+const MobileMenu = ({ open, handleClose }: Props) => {
   const menuRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -31,29 +34,30 @@ const MobileMenu = (props: Props) => {
       return () => clearTimeout(timeoutId);
     }
   }, [open]);
-  const handleClose = useCallback(() => {
-    console.log('pewx')
-    setOpen(false);
-  }, []);
+
   return (
     <>
-      <Button
-        className='px-[18px] md:hidden h-full'
-        onClick={() => {
-          setOpen((prev) => !prev);
+      <div
+        style={{
+          transform: `scaleY(${open ? 1 : 0})`,
+          transformOrigin: 'left bottom',
+          willChange: 'transform'
         }}
-      >
-        <MenuIcon className='' />
-      </Button>
+        className='left-0 top-0 transition-transform duration-[1200ms] ease-in-out-quart  fixed bottom-0 w-full bg-primary-dark h-full '
+      ></div>
       <ul
         ref={menuRef}
-        style={{
-          opacity: open ? 1 : 0
-        }}
-        className={`bg-primary  top-[57px] -z-10 absolute transition-opacity  h-[calc(100dvh-109px)] inset-0 md:hidden [&>li]:border-b [&>li]:border-b-divider`}
+        className={`  top-[57px] z-20 absolute transition-opacity  h-[calc(100%-109px)] inset-0 md:hidden grid place-content-center gap-4`}
       >
-        {mobileLinks.map((href) => (
-          <Item href={href} key={href} onClick={handleClose} />
+        {mobileLinks.map((href, index) => (
+          <Item
+            href={href}
+            key={href}
+            onClick={handleClose}
+            isMobile
+            delay={(index+1) * (open?300:0) + 'ms'}
+            open={open}
+          />
         ))}
       </ul>
     </>

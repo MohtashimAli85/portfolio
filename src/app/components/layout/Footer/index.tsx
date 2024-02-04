@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className='h-[50px]   border-t border-divider flex items-center justify-between'>
+    <footer className='h-[50px] relative z-20   border-t border-divider flex items-center justify-between'>
       <div className='h-full items-center flex-1 md:flex-none flex justify-between pl-[22px] md:border-r border-divider text-secondary-dark'>
         <h6 className='whitespace-nowrap pr-4'>find me in:</h6>
         <div className='flex h-full'>

@@ -1,10 +1,12 @@
 'use client';
-import MenuIcon from '@/app/icons/social/MenuIcon';
-import Item, { links, mobileLinks } from './Item';
 import { Button } from '@/app/components/ui/Button';
-import { useState } from 'react';
-import MobileMenu from './mobile';
-const Menu = () => {
+import Item, { links } from './Item';
+import { FC } from 'react';
+import MenuIcon from '@/app/icons/social/MenuIcon';
+interface Props {
+  handleToggle: () => void;
+}
+const Menu:FC<Props> = ({handleToggle}) => {
   return (
     <nav className=' md:basis-[65%] h-full md:border-l md:border-r border-divider'>
       <ul className='hidden md:flex h-full [&>li+li]:border-l [&>li+li]:border-l-divider'>
@@ -12,7 +14,9 @@ const Menu = () => {
           <Item href={href} key={href} />
         ))}
       </ul>
-      <MobileMenu/>
+      <Button className='px-[18px] md:hidden h-full' onClick={handleToggle}>
+        <MenuIcon className='' />
+      </Button>
     </nav>
   );
 };
