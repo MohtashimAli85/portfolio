@@ -42,7 +42,7 @@ const MobileMenu = ({ open, handleClose }: Props) => {
       <div
         style={{
           transform: `scaleY(${open ? 1 : 0})`,
-          transformOrigin: 'left bottom',
+          transformOrigin: 'left top',
           willChange: 'transform'
         }}
         className='left-0 top-0 transition-transform duration-[1200ms] ease-in-out-quart  fixed bottom-0 w-full bg-primary-dark h-full '
