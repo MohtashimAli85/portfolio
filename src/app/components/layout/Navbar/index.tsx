@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <>
       <header className='relative z-20 h-[56px]   border-b border-divider flex items-center justify-between md:justify-normal'>
-        <h1 className='text-secondary-dark md:basis-[20%] pl-[22px]'>
+        <h1 className='text-secondary-dark md:basis-[15%] pl-[22px]'>
           mohtashim-ali
         </h1>
         <Menu handleToggle={handleToggle} />

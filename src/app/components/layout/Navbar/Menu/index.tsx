@@ -8,7 +8,7 @@ interface Props {
 }
 const Menu:FC<Props> = ({handleToggle}) => {
   return (
-    <nav className=' md:basis-[65%] h-full md:border-l md:border-r border-divider'>
+    <nav className=' md:basis-[75%] h-full md:border-l md:border-r border-divider'>
       <ul className='hidden md:flex h-full [&>li+li]:border-l [&>li+li]:border-l-divider'>
         {links.map((href) => (
           <Item href={href} key={href} />
