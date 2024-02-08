@@ -1,7 +1,5 @@
 'use client';
-import { Button } from '@/app/components/ui/Button';
-import MenuIcon from '@/app/icons/social/MenuIcon';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Item, { mobileLinks } from '../Item';
 
 type Props = {
@@ -45,7 +43,7 @@ const MobileMenu = ({ open, handleClose }: Props) => {
           transformOrigin: 'left top',
           willChange: 'transform'
         }}
-        className='left-0 top-0 transition-transform duration-[1200ms] ease-in-out-quart  fixed bottom-0 w-full bg-primary-dark h-full '
+        className='left-0 top-0 z-10 transition-transform duration-[1200ms] ease-in-out-quart  fixed bottom-0 w-full bg-primary-dark h-full '
       ></div>
       <ul
         ref={menuRef}
@@ -57,7 +55,7 @@ const MobileMenu = ({ open, handleClose }: Props) => {
             key={href}
             onClick={handleClose}
             isMobile
-            delay={(index+1) * (open?300:0) + 'ms'}
+            delay={(index+0.75) * (open?500:0) + 'ms'}
             open={open}
           />
         ))}
