@@ -19,7 +19,7 @@ export default function Home() {
               {'>  '}Front-end developer
             </h2>
           </div>
-          <div className=' text-sm md:text-base'>
+          <div className='text-xs sm:text-sm md:text-base'>
             <p className='text-secondary-dark break-words'>
               {'//'} you can also check it on my GitHub page
             </p>
