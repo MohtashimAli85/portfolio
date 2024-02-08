@@ -19,7 +19,7 @@ export default function Home() {
               {'>  '}Front-end developer
             </h2>
           </div>
-          <div className='text-xs sm:text-sm md:text-base'>
+          <div className='text-xs sm:text-sm md:text-base space-y-4'>
             <p className='text-secondary-dark break-words'>
               {'//'} you can also check it on my GitHub page
             </p>
@@ -31,7 +31,7 @@ export default function Home() {
                 <a
                   href='https://github.com/MohtashimAli85/portfolio'
                   target='_blank'
-                  className='break-words'
+                  className='leading-normal'
                 >
                   &quot;https://github.com/MohtashimAli85/portfolio&quot;
                 </a>
