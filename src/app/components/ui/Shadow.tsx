@@ -8,12 +8,12 @@ interface Props {
   left?: number | 'unset';
   right?: number | 'unset';
   bottom?: number | 'unset';
+  className?: string;
 }
 
 const Shadow: FC<Props> = ({
+  className = '',
   color,
-  width = 255,
-  height = 277,
   top = 'unset',
   left = 'unset',
   right = 'unset',
@@ -34,15 +34,13 @@ const Shadow: FC<Props> = ({
   return (
     <div
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
         top,
         left,
         right,
         bottom,
         background: bgColor[color]
       }}
-      className={`absolute opacity-50 blur-[70px] ${rounded[color]}`}
+      className={`absolute opacity-50 blur-[70px] w-[70%] h-[60%]   ${rounded[color]} ${className}`}
     ></div>
   );
 };
