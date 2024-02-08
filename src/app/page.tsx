@@ -14,7 +14,7 @@ export default function Home() {
           />
           <div className='space-y-3'>
             <p className='text-base md:text-xl'>Hi all, I am</p>
-            <h1 className='text-6xl leading-[1.25]'>Mohtashim Ali</h1>
+            <h1 className='text-5xl sm:text-6xl leading-[1.25]'>Mohtashim Ali</h1>
             <h2 className='text-xl sm:text-2xl md:text-3xl text-aquamarine md:text-secondary'>
               {'>  '}Front-end developer
             </h2>
