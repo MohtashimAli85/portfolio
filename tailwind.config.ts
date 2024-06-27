@@ -49,16 +49,21 @@ const config: Config = {
       },
       fadeOut: {
         '0%': {
-          opacity: '1',
+          opacity: '1'
         },
         '100%': {
-          opacity: '0',
+          opacity: '0'
         }
+      },
+      blink: {
+        '0%, 100%': { opacity: '0' },
+        '50%': { opacity: '1' }
       }
     },
     animation: {
       fadeInUp: 'fadeInUp 0.5s cubic-bezier(0.61, 1, 0.88, 1)',
-      fadeOut: 'fadeOut 0.5s ease-out'
+      fadeOut: 'fadeOut 0.5s ease-out',
+      blink: 'blink 1.1s infinite'
     }
   },
   plugins: []

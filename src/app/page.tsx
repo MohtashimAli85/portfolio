@@ -1,10 +1,11 @@
-import Shadow from './components/ui/Shadow';
+import Shadow from '../components/ui/Shadow';
+import Typing from '../components/ui/Typing';
 
 export default function Home() {
   return (
-    <section className='flex items-center h-full px-5 md:px-0 py-20 md:py-24 md:ml-[15%] md:mr-[10%]  md:max-w-[75%] '>
-      <div className='flex h-full max-h-[510px] w-full'>
-        <div className='flex flex-col relative -z-0 justify-between w-full md:basis-1/2 md:space-y-20'>
+    <section className='flex h-full items-center px-5 py-20 md:ml-[15%] md:mr-[10%] md:max-w-[75%] md:px-0  md:py-24 '>
+      <div className='flex size-full max-h-[510px]'>
+        <div className='relative -z-0 flex w-full flex-col justify-between md:basis-1/2 md:space-y-20'>
           <Shadow color='primary' top={0} left={-15} className=' md:hidden' />
           <Shadow
             color='secondary'
@@ -14,16 +15,23 @@ export default function Home() {
           />
           <div className='space-y-3'>
             <p className='text-base md:text-xl'>Hi all, I am</p>
-            <h1 className='text-5xl sm:text-6xl leading-[1.25]'>Mohtashim Ali</h1>
-            <h2 className='text-xl sm:text-2xl md:text-3xl text-aquamarine md:text-secondary'>
-              {'>  '}Front-end developer
+            <h1 className='text-5xl leading-tight sm:text-6xl'>
+              Mohtashim Ali
+            </h1>
+            <h2 className='text-xl text-aquamarine sm:text-2xl md:text-3xl md:text-secondary'>
+              {'>  '}
+              <Typing
+                sequence={['Front-end developer']}
+                // repeat={1}
+                // speed={150}
+              />
             </h2>
           </div>
-          <div className='text-xs sm:text-sm md:text-base space-y-4'>
-            <p className='text-secondary-dark break-words'>
+          <div className='space-y-4 text-xs sm:text-sm md:text-base'>
+            <p className='break-words text-secondary-dark'>
               {'//'} you can also check it on my GitHub page
             </p>
-            <h3 className='font-medium text-salmon break-all '>
+            <h3 className='break-all font-medium text-salmon '>
               <span className='text-secondary'>const </span>
               <span className='text-aquamarine'> githubLink </span>
               <span className='text-white'>= </span>
@@ -39,7 +47,7 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className='hidden md:block basis-1/2'></div>
+        <div className='hidden basis-1/2 md:block'></div>
       </div>
     </section>
   );

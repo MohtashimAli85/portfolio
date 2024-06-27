@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Fira_Code } from 'next/font/google';
 import './globals.css';
-import Layout from './components/layout';
+import Layout from '../components/layout';
 
 const fira_code = Fira_Code({ subsets: ['latin'] });
 
@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${fira_code.className} flex flex-col justify-between bg-primary`}>
+      <body
+        className={`${fira_code.className} flex flex-col justify-between bg-primary`}
+      >
         <Layout>{children}</Layout>
       </body>
     </html>

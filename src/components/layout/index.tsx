@@ -8,10 +8,8 @@ const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className='flex-1 bg-primary'>
-      {children}
-      </main>
-      <Footer/>
+      <main className='flex-1 bg-primary'>{children}</main>
+      <Footer />
     </>
   );
 };
