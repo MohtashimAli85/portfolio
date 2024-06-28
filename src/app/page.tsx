@@ -20,11 +20,7 @@ export default function Home() {
             </h1>
             <h2 className='text-xl text-aquamarine sm:text-2xl md:text-3xl md:text-secondary'>
               {'>  '}
-              <Typing
-                sequence={['Front-end developer']}
-                // repeat={1}
-                // speed={150}
-              />
+              <Typing text='Frontend Developer' />
             </h2>
           </div>
           <div className='space-y-4 text-xs sm:text-sm md:text-base'>
