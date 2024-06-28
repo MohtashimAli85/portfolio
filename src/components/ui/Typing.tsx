@@ -2,58 +2,50 @@
 import React, { useEffect, useState } from 'react';
 
 interface TypeAnimationProps {
-  sequence: (string | number)[];
+  text: string;
   speed?: number;
-  repeat?: number;
 }
 
-const TypeAnimation: React.FC<TypeAnimationProps> = ({
-  sequence,
-  speed = 63,
-  repeat = Infinity
-}) => {
+const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [seqIndex, setSeqIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [repeatCount, setRepeatCount] = useState(0);
+  const [mistakeMade, setMistakeMade] = useState(false);
+  const mistakeChar = 'n'; // Adjust this to the character you want to mistakenly type
 
   useEffect(() => {
     const handleTyping = () => {
-      const current = sequence[seqIndex];
-      const isString = typeof current === 'string';
-      if (isString) {
-        if (!isDeleting && charIndex < (current as string).length) {
-          setDisplayedText((prev) => prev + (current as string)[charIndex]);
-          setCharIndex(charIndex + 1);
-        } else if (isDeleting && charIndex > 0) {
-          setDisplayedText((prev) => prev.slice(0, -1));
-          setCharIndex(charIndex - 1);
-        } else if (!isDeleting && charIndex === (current as string).length) {
-          if (
-            sequence.length === 1 ||
-            (repeat !== Infinity && repeatCount >= repeat)
-          ) {
-            return;
+      if (!isDeleting) {
+        if (charIndex < text.length) {
+          console.log({ mistakeMade });
+          if (charIndex === 2 && !mistakeMade) {
+            // Adjust 5 to where you want the mistake to happen
+            setDisplayedText((prev) => prev + mistakeChar);
+            setCharIndex((prev) => prev + 1);
+            setMistakeMade(true);
+            setTimeout(() => setIsDeleting(true), 500); // Pause before deleting the mistake
+          } else if (!mistakeMade) {
+            setDisplayedText((prev) => prev + text[charIndex]);
+            setCharIndex((prev) => prev + 1);
           }
-          setIsDeleting(true);
-        } else if (isDeleting && charIndex === 0) {
-          setIsDeleting(false);
-          setSeqIndex((seqIndex + 1) % sequence.length);
-          if ((seqIndex + 1) % sequence.length === 0) {
-            setRepeatCount(repeatCount + 1);
-          }
+        } else {
+          clearInterval(typingInterval);
         }
       } else {
-        setTimeout(() => {
-          setSeqIndex((seqIndex + 1) % sequence.length);
-        }, current as number);
+        if (displayedText.endsWith(mistakeChar)) {
+          setDisplayedText((prev) => prev.slice(0, -1));
+          setTimeout(() => {
+            setMistakeMade(false);
+            setIsDeleting(false);
+            setDisplayedText((prev) => prev + text[charIndex - 1]);
+          }, speed); // Resume typing the correct character
+        }
       }
     };
 
-    const timeout = setTimeout(handleTyping, speed);
-    return () => clearTimeout(timeout);
-  }, [charIndex, seqIndex, isDeleting, speed, sequence, repeat, repeatCount]);
+    const typingInterval = setInterval(handleTyping, speed);
+    return () => clearInterval(typingInterval);
+  }, [text, speed, charIndex, isDeleting, mistakeMade, displayedText]);
 
   return (
     <span>
