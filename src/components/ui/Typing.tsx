@@ -11,7 +11,7 @@ const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [mistakeMade, setMistakeMade] = useState(false);
-  const mistakeChar = 'n'; // Adjust this to the character you want to mistakenly type
+  const mistakeChar = 'n';
 
   useEffect(() => {
     const handleTyping = () => {
@@ -19,11 +19,10 @@ const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
         if (charIndex < text.length) {
           console.log({ mistakeMade });
           if (charIndex === 2 && !mistakeMade) {
-            // Adjust 5 to where you want the mistake to happen
             setDisplayedText((prev) => prev + mistakeChar);
             setCharIndex((prev) => prev + 1);
             setMistakeMade(true);
-            setTimeout(() => setIsDeleting(true), 500); // Pause before deleting the mistake
+            setTimeout(() => setIsDeleting(true), 500);
           } else if (!mistakeMade) {
             setDisplayedText((prev) => prev + text[charIndex]);
             setCharIndex((prev) => prev + 1);
@@ -38,7 +37,7 @@ const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
             setMistakeMade(false);
             setIsDeleting(false);
             setDisplayedText((prev) => prev + text[charIndex - 1]);
-          }, speed); // Resume typing the correct character
+          }, speed + 200);
         }
       }
     };
