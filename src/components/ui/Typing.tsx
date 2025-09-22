@@ -1,5 +1,5 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useEffect, useState } from "react";
 
 interface TypeAnimationProps {
   text: string;
@@ -7,11 +7,11 @@ interface TypeAnimationProps {
 }
 
 const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [mistakeMade, setMistakeMade] = useState(false);
-  const mistakeChar = 'n';
+  const mistakeChar = "n";
 
   useEffect(() => {
     const handleTyping = () => {
@@ -49,7 +49,7 @@ const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
   return (
     <span>
       {displayedText}
-      <span className='animate-blink'>|</span>
+      <span className="animate-blink">|</span>
     </span>
   );
 };

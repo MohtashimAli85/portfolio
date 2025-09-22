@@ -1,12 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --animate-*: initial;
+  --animate-fade-in-up: fadeInUp 0.5s cubic-bezier(0.61, 1, 0.88, 1);
+  --animate-fade-out: fadeOut 0.5s ease-out;
+  --animate-blink: blink 1.1s infinite;
+
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-in-out-quard: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --color-primary-dark: #01080e;
+  --color-primary-light: #011627;
+  --color-primary: #011221;
+
+  --color-secondary-dark: #607b96;
+  --color-secondary-light: #3c9d93;
+  --color-secondary: #4d5bce;
+
+  --color-pale-orange: #fea55f;
+  --color-aquamarine: #43d9ad;
+  --color-salmon: #e99287;
+  --color-lavender: #c98bdf;
+  --color-divider: #1e2d3d;
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @layer base {
-  html{
-    @apply h-full 
+  html {
+    @apply h-full;
   }
-  body{
-    @apply text-white border border-divider rounded-lg h-full
+  body {
+    @apply text-white border border-divider rounded-lg h-full;
   }
 }

@@ -43,7 +43,7 @@ const MobileMenu = ({ open, handleClose }: Props) => {
           transformOrigin: 'left top',
           willChange: 'transform'
         }}
-        className='left-0 top-0 z-10 transition-transform duration-[1200ms] ease-in-out-quart  fixed bottom-0 w-full bg-primary-dark h-full '
+        className='left-0 top-0 z-10 transition-transform duration-1200 ease-in-out-quart  fixed bottom-0 w-full bg-primary-dark h-full '
       ></div>
       <ul
         ref={menuRef}
