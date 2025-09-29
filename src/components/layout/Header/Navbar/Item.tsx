@@ -28,10 +28,8 @@ const Item: FC<Props> = ({ href, isMobile = false, delay, open, ...rest }) => {
       }}
       className={
         isMobile
-          ? `text-2xl uppercase ${
-              open
-                ? "opacity-0 translate-y-4  animate-fade-in-up"
-                : "animate-fade-out"
+          ? `text-2xl uppercase translate-y-4  ${
+              open ? "opacity-0  animate-fade-in-up" : "animate-fade-out"
             } ${
               isActive ? "text-pale-orange" : ""
             } hover:text-pale-orange transition-colors ease-in-cubic`

@@ -3,7 +3,7 @@ import Typing from "../components/ui/Typing";
 
 export default function Home() {
   return (
-    <section className="flex h-full items-center px-5 py-20 md:ml-[15%] md:mr-[10%] md:max-w-[75%] md:px-0  md:py-24 ">
+    <section className="flex h-full items-center px-5 py-20 md:ml-[300px] md:mr-[10%] md:max-w-[65%] md:px-0  md:py-24 ">
       <div className="flex size-full max-h-[510px]">
         <div className="relative -z-0 flex w-full flex-col justify-between md:basis-1/2 md:space-y-20">
           <Shadow color="primary" top={0} left={-15} className=" md:hidden" />

@@ -15,7 +15,7 @@
     from 180deg at 50% 50%,
     var(--tw-gradient-stops)
   );
-
+  --color-background: #010c15;
   --color-primary-dark: #01080e;
   --color-primary-light: #011627;
   --color-primary: #011221;
@@ -82,6 +82,6 @@
     @apply h-full;
   }
   body {
-    @apply text-white border border-divider rounded-lg h-full;
+    @apply text-white  h-full;
   }
 }
