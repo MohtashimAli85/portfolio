@@ -30,6 +30,12 @@
   --color-lavender: #c98bdf;
   --color-divider: #1e2d3d;
 
+  --gradient-teal: linear-gradient(
+    150.26deg,
+    rgba(23, 85, 83, 0.7) 1.7%,
+    rgba(67, 217, 173, 0.091) 81.82%
+  );
+
   @keyframes fadeInUp {
     0% {
       opacity: 0;
@@ -68,18 +74,15 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
+  /* *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
-  }
-}
-
-@layer base {
+  } */
   html {
-    @apply h-full;
+    @apply h-full overflow-hidden;
   }
   body {
     @apply text-white  h-full;

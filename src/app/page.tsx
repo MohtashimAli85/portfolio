@@ -1,11 +1,12 @@
+import EchoResonance from "@/components/echoe-resonance";
 import Shadow from "../components/ui/Shadow";
 import Typing from "../components/ui/Typing";
 
 export default function Home() {
   return (
-    <section className="flex h-full items-center px-5 py-20 md:ml-[300px] md:mr-[10%] md:max-w-[65%] md:px-0  md:py-24 ">
-      <div className="flex size-full max-h-[510px]">
-        <div className="relative -z-0 flex w-full flex-col justify-between md:basis-1/2 md:space-y-20">
+    <section className="flex h-full items-center px-5 py-20 lg:ml-[300px] lg:mr-[10%] xl:max-w-[65%] xl:px-0  md:py-24 ">
+      <div className="flex flex-wrap xl:flex-nowrap gap-4 size-full  ">
+        <div className="relative max-h-[510px] self-center -z-0 flex w-full flex-col justify-between xl:basis-1/2 md:space-y-20">
           <Shadow color="primary" top={0} left={-15} className=" md:hidden" />
           <Shadow
             color="secondary"
@@ -43,7 +44,9 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="hidden basis-1/2 md:block"></div>
+        <div className="hidden xl:basis-1/2 xl:block self-center">
+          <EchoResonance />
+        </div>
       </div>
     </section>
   );
