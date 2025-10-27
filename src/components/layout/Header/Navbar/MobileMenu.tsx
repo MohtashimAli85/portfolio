@@ -1,41 +1,42 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react";
-import Item, { mobileLinks } from "./Item";
-import { Button } from "@/components/ui/Button";
 import MenuIcon from "@/app/icons/social/MenuIcon";
+import { Button } from "@/components/ui/Button";
+import { useCallback, useRef, useState } from "react";
+import Item, { mobileLinks } from "./Item";
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
-  const handleToggle = useCallback(() => setOpen((prev) => !prev), []);
-  const handleClose = useCallback(() => {
-    setOpen(false);
-  }, []);
-  const menuRef = useRef<HTMLUListElement>(null);
+  const [showItems, setShowItems] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const menuElement = menuRef.current;
-    if (open) {
-      const showMenu = () => {
-        if (menuElement) {
-          menuElement.classList.add("z-20");
-          menuElement.classList.remove("-z-10");
-        }
-      };
-      const timeoutId = setTimeout(showMenu);
-
-      return () => clearTimeout(timeoutId);
-    } else {
-      const hideMenu = () => {
-        if (menuElement) {
-          menuElement.classList.remove("z-20");
-          menuElement.classList.add("-z-10");
-        }
-      };
-      const timeoutId = setTimeout(hideMenu, 1200);
-
-      return () => clearTimeout(timeoutId);
+  const handleToggle = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
-  }, [open]);
+
+    const newOpen = !open;
+    setOpen(newOpen);
+
+    timeoutRef.current = setTimeout(() => {
+      setShowItems(newOpen);
+      timeoutRef.current = null;
+    }, 600);
+  };
+
+  const handleClose = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setOpen(false);
+    timeoutRef.current = setTimeout(() => {
+      setShowItems(false);
+      timeoutRef.current = null;
+    }, 600);
+  }, []);
+
+  const menuRef = useRef<HTMLUListElement>(null);
 
   return (
     <>
@@ -54,7 +55,9 @@ const MobileMenu = () => {
       ></div>
       <ul
         ref={menuRef}
-        className={`   top-[74px]  fixed -z-10  h-[calc(100vh-141px)] inset-0 md:hidden grid place-content-center gap-4`}
+        className={`   top-[74px]  fixed  h-[calc(100vh-141px)] inset-0 md:hidden grid place-content-center gap-4 ${
+          showItems ? "opacity-100 z-20" : "opacity-0 -z-10 "
+        }        `}
       >
         {mobileLinks.map((href, index) => (
           <Item
