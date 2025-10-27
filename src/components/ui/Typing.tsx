@@ -17,7 +17,6 @@ const TypeAnimation: React.FC<TypeAnimationProps> = ({ text, speed = 63 }) => {
     const handleTyping = () => {
       if (!isDeleting) {
         if (charIndex < text.length) {
-          console.log({ mistakeMade });
           if (charIndex === 2 && !mistakeMade) {
             setDisplayedText((prev) => prev + mistakeChar);
             setCharIndex((prev) => prev + 1);
