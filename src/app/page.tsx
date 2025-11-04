@@ -38,7 +38,7 @@ export default function Home() {
                   target="_blank"
                   className="leading-normal"
                 >
-                  &quot;https://github.com/MohtashimAli85/portfolio&quot;
+                  &quot;https://github.com/MohtashimAli85&quot;
                 </a>
               </span>
             </h3>
