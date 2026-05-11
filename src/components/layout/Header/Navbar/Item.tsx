@@ -1,24 +1,27 @@
+import { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { FC } from "react";
+import { NavbarRoute } from "./routes";
 
-export const names = {
-  "/": "_hello",
-  "/about-me": "_about-me",
-  "/projects": "_projects",
-  "/contact-me": "_contact-me",
-};
-export const links = Object.keys(names).toSpliced(-1) as Props["href"][];
-export const mobileLinks = Object.keys(names) as Props["href"][];
+// export const names: Record<Route, string> = {
+//   "/": "_hello",
+//   "/about-me/personal-info": "_about-me",
+
+//   "/projects": "_projects",
+//   "/contact-me": "_contact-me",
+// };
+// export const links = Object.keys(names).toSpliced(-1) as Route[];
+// export const mobileLinks = Object.keys(names) as Route[];
 interface Props extends React.LiHTMLAttributes<HTMLLIElement> {
-  href: keyof typeof names;
+  route: NavbarRoute;
   isMobile?: boolean;
   delay?: string;
   open?: boolean;
 }
-const Item: FC<Props> = ({ href, isMobile = false, delay, open, ...rest }) => {
+const Item: FC<Props> = ({ route, isMobile = false, delay, open, ...rest }) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname === route.href;
   return (
     <li
       {...rest}
@@ -40,8 +43,8 @@ const Item: FC<Props> = ({ href, isMobile = false, delay, open, ...rest }) => {
             } transition-all`
       }
     >
-      <Link href={href} className="px-[30px] py-[17px]">
-        {names[href]}
+      <Link href={route.href} className="px-[30px] py-[17px]">
+        {route.name}
       </Link>
     </li>
   );

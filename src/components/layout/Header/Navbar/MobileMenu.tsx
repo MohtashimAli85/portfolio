@@ -2,7 +2,8 @@
 import MenuIcon from "@/app/icons/social/MenuIcon";
 import { Button } from "@/components/ui/Button";
 import { useCallback, useRef, useState } from "react";
-import Item, { mobileLinks } from "./Item";
+import Item from "./Item";
+import navbarRoutes from "./routes";
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
@@ -59,10 +60,10 @@ const MobileMenu = () => {
           showItems ? "opacity-100 z-20" : "opacity-0 -z-10 "
         }        `}
       >
-        {mobileLinks.map((href, index) => (
+        {navbarRoutes.map((route, index) => (
           <Item
-            href={href}
-            key={href}
+            key={route.href}
+            route={route}
             onClick={handleClose}
             isMobile
             delay={open ? 600 + index * 100 + "ms" : "0ms"}
