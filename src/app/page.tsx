@@ -1,4 +1,3 @@
-import EchoResonance from "@/components/echoe-resonance";
 import Shadow from "../components/ui/Shadow";
 import Typing from "../components/ui/Typing";
 
@@ -45,7 +44,6 @@ export default function Home() {
           </div>
         </div>
         <div className="hidden xl:basis-1/2 xl:block self-center">
-          <EchoResonance />
         </div>
       </div>
     </section>
