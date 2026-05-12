@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import React, { FC } from "react";
 import { NavbarRoute } from "./routes";
 
-interface Props extends React.LiHTMLAttributes<HTMLLIElement> {
+interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   route: NavbarRoute;
   isMobile?: boolean;
   delay?: string;
@@ -19,10 +19,10 @@ const NavItem: FC<Props> = ({
 }) => {
   const pathname = usePathname();
   const [first] = pathname.split("/").filter(Boolean);
-  console.log({ pathname, p: pathname.split("/").filter(Boolean), first });
   const isActive = first ? route.href.includes(first) : pathname === route.href;
   return (
     <Link
+      {...rest}
       style={{
         animationDelay: delay || "0",
         animationFillMode: "forwards",
