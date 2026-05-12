@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <section className="flex h-full items-center px-5 py-20 lg:ml-[300px] lg:mr-[10%] xl:max-w-[65%] xl:px-0  md:py-24 ">
       <div className="flex flex-wrap xl:flex-nowrap gap-4 size-full  ">
-        <div className="relative max-h-[510px] self-center -z-0 flex w-full flex-col justify-between xl:basis-1/2 md:space-y-20">
+        <div className="relative max-h-[510px] self-center z-0 flex w-full flex-col justify-between xl:basis-1/2 md:space-y-20">
           <Shadow color="primary" top={0} left={-15} className=" md:hidden" />
           <Shadow
             color="secondary"
@@ -24,7 +24,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="space-y-4 text-xs sm:text-sm md:text-base">
-            <p className="break-words text-secondary-dark">
+            <p className="wrap-break-word text-secondary-dark">
               {"//"} you can also check it on my GitHub page
             </p>
             <h3 className="break-all font-medium text-salmon ">
