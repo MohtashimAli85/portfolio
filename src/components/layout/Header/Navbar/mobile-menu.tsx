@@ -2,7 +2,7 @@
 import MenuIcon from "@/app/icons/social/MenuIcon";
 import { Button } from "@/components/ui/Button";
 import { useCallback, useRef, useState } from "react";
-import Item from "./Item";
+import Item from "./nav-item";
 import navbarRoutes from "./routes";
 
 const MobileMenu = () => {

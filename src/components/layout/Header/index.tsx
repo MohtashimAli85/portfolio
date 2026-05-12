@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "./Navbar";
-import ContactMe from "./Navbar/ContactMe";
+import Navbar from "./navbar";
+import ContactMe from "./navbar/contact-me";
 
 const Header = () => {
   return (

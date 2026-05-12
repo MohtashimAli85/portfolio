@@ -15,10 +15,10 @@
     from 180deg at 50% 50%,
     var(--tw-gradient-stops)
   );
-  --color-background: #010c15;
+  --color-background: #020618;
   --color-primary-dark: #01080e;
   --color-primary-light: #011627;
-  --color-primary: #011221;
+  --color-primary: #0f172b;
 
   --color-secondary-dark: #607b96;
   --color-secondary-light: #3c9d93;
