@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { FC } from "react";
 import { NavbarRoute } from "./routes";
+import useActivePath from "@/hooks/use-active-path";
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   route: NavbarRoute;
@@ -17,9 +18,7 @@ const NavItem: FC<Props> = ({
   open,
   ...rest
 }) => {
-  const pathname = usePathname();
-  const [first] = pathname.split("/").filter(Boolean);
-  const isActive = first ? route.href.includes(first) : pathname === route.href;
+  const { isActive } = useActivePath(route.href);
   return (
     <Link
       {...rest}
@@ -28,7 +27,7 @@ const NavItem: FC<Props> = ({
         animationFillMode: "forwards",
       }}
       href={route.href}
-      className={` relative px-[30px] py-3 h-full
+      className={` relative px-7.5 py-3 h-full
            ${
              isMobile
                ? `text-2xl uppercase translate-y-4  ${
