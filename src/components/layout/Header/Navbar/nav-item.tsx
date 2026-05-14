@@ -16,6 +16,7 @@ const NavItem: FC<Props> = ({
   isMobile = false,
   delay,
   open,
+  className = "",
   ...rest
 }) => {
   const { isActive } = useActivePath(route.href);
@@ -34,19 +35,20 @@ const NavItem: FC<Props> = ({
                    open ? "opacity-0  animate-fade-in-up" : "animate-fade-out"
                  } ${
                    isActive ? "text-pale-orange" : ""
-                 } hover:text-pale-orange transition-colors ease-in-cubic`
-               : `grid md:place-content-center  last:border-r last:border-r-divider ${
+                 } hover:text-primary-hover transition-colors ease-in-cubic`
+               : `grid md:place-content-center  last:border-r last:border-r-theme-stroke ${
                    isActive
                      ? ""
-                     : "  text-secondary-dark hover:bg-primary-light"
+                     : "  text-theme-foreground hover:bg-theme-backdrop/50"
                  } transition-all`
            }
-        `}
+        ${className}
+           `}
     >
       {route.name}
       <hr
         data-show={isActive}
-        className="hidden data-[show='true']:block w-full bottom-0 absolute text-pale-orange bg-pale-orange h-1"
+        className="hidden data-[show='true']:block w-full bottom-0 absolute text-primary-background bg-primary-background h-1"
       />
     </Link>
   );

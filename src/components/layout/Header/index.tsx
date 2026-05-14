@@ -4,8 +4,8 @@ import ContactMe from "./navbar/contact-me";
 
 const Header = () => {
   return (
-    <header className=" h-[56px]   border-b border-divider flex items-center justify-between md:justify-normal">
-      <h1 className="text-secondary-dark md:basis-[300px] pl-[22px] relative z-20">
+    <header className=" h-14   border-b border-theme-stroke flex items-center justify-between lg:justify-normal">
+      <h1 className="text-theme-foreground md:basis-75 pl-5.5 relative z-20">
         mohtashim-ali
       </h1>
       <Navbar />

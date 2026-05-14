@@ -43,7 +43,7 @@ const MobileMenu = () => {
     <>
       <Button
         aria-expanded={open}
-        className="px-[18px] relative z-20 lg:hidden h-full aria-expanded:[&>svg]:text-pale-orange"
+        className="px-4.5 relative z-20 lg:hidden h-full aria-expanded:[&>svg]:text-pale-orange"
         onClick={handleToggle}
       >
         <MenuIcon />
@@ -52,11 +52,11 @@ const MobileMenu = () => {
         style={{
           clipPath: `inset(0% 0% ${open ? "0%" : "100%"} 0%)`,
         }}
-        className="left-[17px] top-[17px] h-[calc(100%-34px)] z-10 transition-[clip-path] duration-1200 ease-in-out-quart fixed bottom-0 w-[calc(100vw-34px)] mx-auto bg-primary-dark rounded-lg will-change-[clip-path]"
+        className="left-4.25 top-4.25 h-[calc(100%-34px)] z-10 transition-[clip-path] duration-1200 ease-in-out-quart fixed bottom-0 w-[calc(100vw-34px)] mx-auto bg-primary-dark rounded-lg will-change-[clip-path]"
       ></div>
       <ul
         ref={menuRef}
-        className={`   top-[74px]  fixed  h-[calc(100vh-141px)] inset-0 md:hidden grid place-content-center gap-4 ${
+        className={`   top-18.5  fixed  h-[calc(100vh-141px)] inset-0 md:hidden grid place-content-center gap-4 ${
           showItems ? "opacity-100 z-20" : "opacity-0 -z-10 "
         }        `}
       >

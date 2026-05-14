@@ -6,7 +6,7 @@ interface Props {
 }
 const Layout: FC<Props> = ({ children }) => {
   return (
-    <div className="border border-divider rounded-lg h-full flex flex-col justify-between bg-primary">
+    <div className="border border-theme-stroke rounded-lg h-full flex flex-col justify-between bg-theme-background">
       <Header />
       <main className="flex-1 bg-primary">{children}</main>
       <Footer />
