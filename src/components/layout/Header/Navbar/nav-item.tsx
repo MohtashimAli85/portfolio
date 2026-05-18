@@ -1,10 +1,8 @@
-import { Route } from "next";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { FC } from "react";
-import { NavbarRoute } from "./routes";
 import useActivePath from "@/hooks/use-active-path";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import React, { FC } from "react";
+import { NavbarRoute } from "./routes";
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   route: NavbarRoute;
@@ -20,7 +18,8 @@ const NavItem: FC<Props> = ({
   className = "",
   ...rest
 }) => {
-  const { isActive } = useActivePath(route.href);
+  const { matches } = useActivePath();
+  const isActive = matches(route.href.split("/")[1] || "/");
   return (
     <Link
       {...rest}
