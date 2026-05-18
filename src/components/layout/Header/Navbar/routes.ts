@@ -10,7 +10,7 @@ const navbarRoutes: NavbarRoute[] = [
   },
   {
     name: "_about-me",
-    href: "/about-me/personal-info",
+    href: "/profile/personal/overview",
   },
   {
     name: "_projects",

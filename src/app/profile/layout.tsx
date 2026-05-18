@@ -1,8 +1,8 @@
-import { Sidebar } from "./components/sidebar-item";
+import { Sidebar } from "./components/sidebar";
 
 const AboutMeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex gap-2 h-full">
+    <div className="flex h-full">
       <Sidebar />
       {children}
     </div>

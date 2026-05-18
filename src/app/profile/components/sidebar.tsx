@@ -15,19 +15,19 @@ const sidebarItems: {
 }[] = [
   {
     name: "Professional Experience",
-    href: "/about-me/professional-info",
+    href: "/profile/professional",
     icon: RiTerminalBoxFill,
   },
   {
     name: "Personal Info",
-    href: "/about-me/personal-info",
+    href: "/profile/personal/overview",
     icon: RiUser4Fill,
   },
   {
-    name:"Hobbies",
-    href:"/about-me/hobbies",
+    name: "Hobbies",
+    href: "/profile/hobbies",
     icon: RiGamepadFill,
-  }
+  },
 ];
 export const Sidebar = () => {
   return (
@@ -49,7 +49,9 @@ const SidebarItem = ({
   href: Route;
   icon: RemixiconComponentType;
 }) => {
-  const { isActive } = useActivePath(href, true);
+  const { includes } = useActivePath();
+
+  const isActive = includes(href.split("/")[2]);
   return (
     <li className="flex" key={href}>
       <Link
@@ -61,7 +63,7 @@ const SidebarItem = ({
         <Icon
           data-active={isActive}
           className={
-            "transition-[color] size-5 data-[active=true]:text-slate-300 text-slate-500 hover:text-slate-300"
+            "transition-[color] size-5 data-[active=true]:text-theme-foreground text-slate-500 hover:text-theme-foreground"
           }
         />
       </Link>
