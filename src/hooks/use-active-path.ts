@@ -11,8 +11,9 @@ const useActivePath = () => {
       segments.includes(h.split("/").filter(Boolean).at(-1)!),
     );
   };
-
-  return { exact, includes, segments, pathname };
+ const matches = (href: string) =>
+  href === "/" ? exact(href) : includes(href);
+  return { exact, includes,matches, segments, pathname };
 };
 
 export default useActivePath;
