@@ -3,12 +3,19 @@
 import { cn } from "@/lib/utils";
 import {
   RemixiconComponentType,
-  RiArrowDownSFill,
-  RiArrowLeftSFill,
   RiArrowRightSFill,
   RiArrowRightSLine,
 } from "@remixicon/react";
-import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+import React, {
+  createContext,
+  DetailedHTMLProps,
+  HTMLAttributes,
+  ReactNode,
+  useContext,
+  useState,
+} from "react";
+
+// ─── Types ─────────────────────────────────────────────────────────────────
 
 interface CollapsibleProps extends DetailedHTMLProps<
   HTMLAttributes<HTMLDetailsElement>,
@@ -17,7 +24,6 @@ interface CollapsibleProps extends DetailedHTMLProps<
   defaultOpen?: boolean;
   children?: ReactNode;
 }
-
 interface CollapsibleTriggerProps extends DetailedHTMLProps<
   HTMLAttributes<HTMLElement>,
   HTMLElement
@@ -31,23 +37,68 @@ interface CollapsibleContentProps extends DetailedHTMLProps<
 > {
   children?: ReactNode;
 }
+
+// ─── Context ────────────────────────────────────────────────────────────────
+
+interface CollapsibleContextValue {
+  open: boolean;
+  onOpenChange: (nextOpen: boolean) => void;
+}
+
+const CollapsibleContext = createContext<CollapsibleContextValue | null>(null);
+
+function useCollapsible(componentName: string): CollapsibleContextValue {
+  const ctx = useContext(CollapsibleContext);
+  if (!ctx) {
+    throw new Error(
+      `<${componentName}> must be used within a <CollapsibleBase>`,
+    );
+  }
+  return ctx;
+}
+
+// ─── Base (state lives here) ────────────────────────────────────────────────
+
 const CollapsibleBase = ({
   defaultOpen = false,
   className,
   children,
   ...props
 }: CollapsibleProps): React.ReactElement => {
+  const [open, setOpen] = useState(defaultOpen);
+
+  // Once opened, it stays open — ignore any close attempts
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) return;
+    setOpen(true);
+  };
+
+  const handleToggle = (e: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const isNowOpen = e.currentTarget.open;
+
+    setOpen(isNowOpen);
+  };
+
   return (
-    <details
-      open={defaultOpen}
-      data-slot="collapsible"
-      className={cn(className)}
-      {...props}
+    <CollapsibleContext.Provider
+      value={{ open, onOpenChange: handleOpenChange }}
     >
-      {children}
-    </details>
+      <details
+        open={open}
+        data-slot="collapsible"
+        data-state={open ? "open" : "closed"}
+        className={cn(className)}
+        onToggle={handleToggle}
+        {...props}
+      >
+        {children}
+      </details>
+    </CollapsibleContext.Provider>
   );
 };
+
+// ─── Collapsible ────────────────────────────────────────────────────────────
+
 function Collapsible({
   className,
   ...props
@@ -62,6 +113,7 @@ function Collapsible({
     />
   );
 }
+
 const CollapsibleSub = ({
   className,
   ...props
@@ -73,19 +125,24 @@ const CollapsibleSub = ({
     />
   );
 };
+
+// ─── Triggers ───────────────────────────────────────────────────────────────
+
 const CollapsibleBaseTrigger = ({
   className,
   children,
   ...props
 }: CollapsibleTriggerProps) => {
+  // Consumed so child triggers can optionally react to open state
+  useCollapsible("CollapsibleBaseTrigger");
+
   return (
     <summary
       data-slot="collapsible-trigger"
       className={cn(
-        "list-none flex text-slate-50 items-center gap-3 cursor-pointer select-none ",
+        "list-none flex text-slate-50 items-center gap-3 cursor-pointer select-none",
         "hover:text-white transition-colors",
-        "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-500 ",
-        // "group-open/collapsible:font-retina",
+        "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-500",
         className,
       )}
       {...props}
@@ -94,6 +151,7 @@ const CollapsibleBaseTrigger = ({
     </summary>
   );
 };
+
 function CollapsibleTrigger({
   className,
   children,
@@ -103,18 +161,18 @@ function CollapsibleTrigger({
     <CollapsibleBaseTrigger
       className={cn(
         "py-3 px-6",
-        "border-b border-theme-stroke  ",
+        "border-b border-theme-stroke",
         "group-open/collapsible:font-retina",
         className,
       )}
       {...props}
     >
       <RiArrowRightSFill className="size-4 group-open/collapsible:rotate-90" />
-
       {children}
     </CollapsibleBaseTrigger>
   );
 }
+
 function CollapsibleSubTrigger({
   children,
   className,
@@ -128,15 +186,14 @@ function CollapsibleSubTrigger({
       )}
       {...props}
     >
-      <RiArrowRightSLine
-        className="size-4 group-open/sub-collapsible:rotate-90
-      
-      "
-      />
+      <RiArrowRightSLine className="size-4 group-open/sub-collapsible:rotate-90" />
       {children}
     </CollapsibleBaseTrigger>
   );
 }
+
+// ─── Content ────────────────────────────────────────────────────────────────
+
 function CollapsibleContent({
   className,
   children,
@@ -152,6 +209,7 @@ function CollapsibleContent({
     </div>
   );
 }
+
 const CollapsibleSubContent = ({
   className,
   children,
@@ -167,6 +225,9 @@ const CollapsibleSubContent = ({
     </div>
   );
 };
+
+// ─── Item ────────────────────────────────────────────────────────────────────
+
 const CollapsibleItem = ({
   icon: Icon,
   label,
@@ -176,11 +237,16 @@ const CollapsibleItem = ({
 }) => {
   return (
     <div className="flex items-center gap-2 py-0.5 text-theme-foreground">
-      <Icon className="size-4 shrink-0 " />
+      <Icon className="size-4 shrink-0" />
       <span>{label}</span>
     </div>
   );
 };
+
+// ─── Hook (for consumers who need raw state) ─────────────────────────────────
+
+export { useCollapsible };
+
 export {
   Collapsible,
   CollapsibleSub,
