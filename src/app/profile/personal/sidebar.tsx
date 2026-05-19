@@ -5,9 +5,9 @@ import {
   CollapsibleItem,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import Folder, { FolderItem } from "@/components/ui/folder";
 import { RiMailFill, RiPhoneFill } from "@remixicon/react";
 import { Route } from "next";
-import SidebarFolder from "../components/ui/sidebar-folder";
 
 const Sidebar = () => {
   return (
@@ -16,7 +16,7 @@ const Sidebar = () => {
         <CollapsibleTrigger>personal-info</CollapsibleTrigger>
         <CollapsibleContent className="mt-1 space-y-1">
           {personalFolders.map((folder) => (
-            <SidebarFolder
+            <Folder
               key={folder.label}
               label={folder.label}
               color={folder.color}
@@ -40,17 +40,16 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-interface Folder {
-  label: string;
-  href: Route;
-}
-const bio: Folder[] = [
+
+const bio: FolderItem[] = [
   { href: "/profile/personal/overview", label: "overview" },
 ];
 
-const interests: Folder[] = [{ href: "/profile/personal/life", label: "life" }];
+const interests: FolderItem[] = [
+  { href: "/profile/personal/life", label: "life" },
+];
 
-const education: Folder[] = [
+const education: FolderItem[] = [
   { href: "/profile/personal/high-school", label: "high-school" },
   { href: "/profile/personal/university", label: "university" },
 ];
