@@ -3,7 +3,10 @@ import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import Layout from "../components/layout";
 
-const fira_code = Fira_Code({ subsets: ["latin"] });
+const fira_code = Fira_Code({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Mohtashim Ali | Portfolio",

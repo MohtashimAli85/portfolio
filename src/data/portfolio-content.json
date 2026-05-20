@@ -1,0 +1,113 @@
+{
+  "professional": {
+    "experience": {
+      "name": "experience",
+      "color": "text-sky-400",
+      "items": [
+        {
+          "id": "spark-ai",
+          "slug": "spark-ai",
+          "title": "Spark AI",
+          "order": 1,
+          "content": "I joined Spark AI as a Senior Front-End Developer in July 2023.\nBy August 2024, I became a Team Lead.\nMost recently, in November 2025, I stepped into the role of Platform Architect.\n\nI guide a cross-functional team of eight people, which includes developers,\ndesigners, and QA engineers. I work closely with my manager, Fahad, and I really\nenjoy mentoring talented developers like Ammar on our team.\n\nMy daily focus is on big-picture planning and technical design. I have architected\nmajor features for projects like Prompt Privacy, building custom authentication\nand a unique Prompt Studio tool. On another project called Ethera, we fixed tricky\nbugs and greatly improved system performance.\n\nI always push for clean code standards, which helped us reduce our project bundle\nsizes by 20%. For me, reaching 100% on-time delivery is about clear communication\nand fixing problems early before they slow down the team."
+        },
+        {
+          "id": "globewyze",
+          "slug": "globewyze",
+          "title": "Globewyze",
+          "order": 2,
+          "content": "I worked at Globewyze from December 2022 to June 2023 as a Front-End Developer.\nDuring this time, my main focus was on improving the SwipeFox platform. I wanted\nto make the code better and easier to read, not just add new features to it.\n\nBy bringing in standard coding practices, we improved the code's maintainability\nby 15%. This saved everyone on the team a lot of time in the long run.\n\nI used Redux and Ant Design to fix complex user interaction issues, which made\nthe entire system function 50% better. One of my favorite tasks was building a\ncustom video player so users could upload their own introduction videos easily.\n\nI tracked all our work and flagged any blockers in Jira to make sure we met our\ndeadlines without stress. This role taught me exactly how to make web systems\nstrong, scalable, and easy for other developers to manage."
+        },
+        {
+          "id": "million-news-media",
+          "slug": "million-news-media",
+          "title": "Million News Media",
+          "order": 3,
+          "content": "My time at Million News Media, from April to November 2022, gave me my first\nbig push into Next.js and server-side rendering (SSR). I helped build a financial\nnews web application called StocksTelegraph.\n\nI used Next.js, Tailwind CSS, and React Query to build the entire front-end of\nthe site. By creating flexible, reusable components, I helped our team build new\nquote pages 50% faster than before.\n\nThe part of this project I am most proud of is the SEO architecture. I carefully\nchose key pages for SSR and used shallow routing to make the site very fast.\nThis work boosted our overall SEO performance by 55%.\n\nSeeing the website climb higher in search rankings because of my technical choices\nwas an amazing feeling. Working in a fast-paced news environment taught me how to\nwrite highly optimized code quickly without losing any quality."
+        },
+        {
+          "id": "alpha-squad",
+          "slug": "alpha-squad",
+          "title": "Alpha Squad",
+          "order": 4,
+          "content": "I started my professional journey at Alpha Squad in March 2022 as an\nAssociate Front-End Developer. It was a short but extremely intense month of\nlearning and building. I created several UI components for the Moda Admin\ntemplate using plain HTML, CSS, and JavaScript.\n\nAt the same time, I spent my evenings teaching myself React.js and Next.js.\nI wanted to understand the modern web as fast as possible. I also learned\nTailwind CSS during this time, which helped me improve our design workflows\nand increase overall team efficiency by 30%.\n\nThis early experience was very special because it proved to me that I could\nlearn new skills fast and contribute to a real team right away. It gave me\nthe strong technical foundation and the confidence I needed to grow quickly\nin my frontend development career."
+        }
+      ]
+    },
+    "skills": {
+      "name": "skills",
+      "color": "text-amber-400",
+      "items": [
+        {
+          "id": "frontend",
+          "slug": "frontend",
+          "title": "Frontend",
+          "order": 1,
+          "content": "My main development tools are built entirely around the modern JavaScript\necosystem. HTML, CSS, and JavaScript are the strong base of everything I create.\nOver the years, I have started using TypeScript for almost all of my projects.\n\nI find it very hard to work without it now because it catches tiny errors early\nand saves the team a lot of stress. React.js is my comfort zone. I love how it\nuses components to build interfaces piece by piece.\n\nI regularly pair it with Next.js to make applications much faster and highly\nSEO-friendly. I do not just use these tools because they are popular in the\nindustry right now. I take the time to learn exactly how they work deeply under\nthe surface.\n\nThis careful approach helps me build clean, reliable code that other developers\ncan easily read and understand long after I write it."
+        },
+        {
+          "id": "ui-libraries",
+          "slug": "ui-libraries",
+          "title": "UI Libraries",
+          "order": 2,
+          "content": "I like to have good, reliable options for styling and managing data in my\napplications. My top choice for styling is Tailwind CSS. I really enjoy its\nutility-first approach, and I am currently exploring the new features in\nTailwind v4.\n\nI also frequently use shadcn/ui to build beautiful and accessible interfaces\nquickly without writing everything from scratch. I am very comfortable working\nwith Bootstrap and Material UI (MUI) when a specific project needs them.\n\nFor handling data from servers, React Query is amazing. It makes caching data\nand updating screens feel effortless. When an application's state gets very\ncomplex, I use Redux Toolkit. For API calls, I rely on Axios.\n\nI try to be very careful when adding new libraries to a project because every\nsingle tool is a long-term commitment for the whole development team."
+        },
+        {
+          "id": "dev-tools",
+          "slug": "dev-tools",
+          "title": "Dev Tools",
+          "order": 3,
+          "content": "Good tools make a developer's life much easier and keep the work organized.\nI do all my daily coding on a MacBook Pro M1. I really appreciate its speed and\nhow well it handles heavy development tasks without slowing down.\n\nFor version control, Git is an absolute must-have. I care a lot about keeping a\nclean Git history because it acts like clear documentation for the rest of the\nteam.\n\nI use ESLint to keep our code style consistent and to catch simple mistakes before\nthey become big problems. To manage my tasks and team projects, I have used both\nJira and Trello. It usually depends on what the team prefers.\n\nI use them to track my work, spot problems early, and keep everyone on the same\npage. I believe that keeping the workflow simple helps the team focus entirely on\nsolving actual user problems."
+        }
+      ]
+    }
+  },
+  "personal": {
+    "bio": {
+      "name": "bio",
+      "color": "text-rose-400",
+      "items": [
+        {
+          "id": "overview",
+          "slug": "overview",
+          "title": "Overview",
+          "order": 1,
+          "content": "Hello! I am Mohtashim Ali, a frontend developer and platform architect\ncurrently based in Pakistan. I have over four years of professional experience\nturning complex ideas into clean, fast, and responsive web applications.\n\nI first got into coding because I loved seeing an instant result—you click a\nbutton on the screen, and something immediately happens. Today, my mission is\nmuch bigger. I want to build digital experiences that are extremely fast, highly\naccessible, and a pure joy for people to use.\n\nI care deeply about writing clean code and creating good system architecture.\nRight now, in my free time, I am building a personal finance app using Next.js,\nSQLite, and Drizzle ORM to automatically track my transactions.\n\nI am a very analytical person, and I am always looking for exciting new challenges\nthat push my technical skills and leadership abilities forward."
+        }
+      ]
+    },
+    "interests": {
+      "name": "interests",
+      "color": "text-emerald-400",
+      "items": [
+        {
+          "id": "life",
+          "slug": "life",
+          "title": "Life",
+          "order": 1,
+          "content": "When I am not working on code, I still love to figure out exactly how complex\nthings work. I really enjoy playing PC and mobile games, especially high-graphics\ntitles like *Wuthering Waves*, *Arknights: Endfield*, and *Punishing: Gray Raven*.\n\nMy love for gaming and tech led me to research and plan a custom PC build. I spent\ntime comparing parts like the Ryzen 5 5600 and Intel i5-14600k processors to get\nthe best performance possible.\n\nI also love hands-on technical projects around my house. Recently, I set up and\noptimized a 4kW home solar power system. I learned all about managing the\nelectrical load and upgrading to modern lithium batteries.\n\nRight now, I am actively researching local electric bikes for a cleaner daily\ncommute. Family is very important to me, and I love planning trips and spending\nquality time with my wife.\n\nThese hobbies help me relax and bring fresh energy back to my work."
+        }
+      ]
+    },
+    "education": {
+      "name": "education",
+      "color": "text-violet-400",
+      "items": [
+        {
+          "id": "high-school",
+          "slug": "high-school",
+          "title": "High School",
+          "order": 1,
+          "content": "Before I went to university, I studied at Pak Kashmir Institute of Computer\nSciences in Jhelum, Punjab. From 2016 to 2018, I focused heavily on\nPre-Engineering. This was a very natural path for me because I always wanted to\nunderstand how the world works at a fundamental level.\n\nStudying subjects like physics and advanced mathematics helped me build very\nstrong logical thinking skills. Back then, I did not know for sure that I would\nbecome a software engineer. However, those years taught me how to solve difficult\nproblems and how to study hard under pressure.\n\nThe jump from Pre-Engineering in high school to Software Engineering at university\nfelt very natural to me. I already had a solid foundation in logic, and I was ready\nto apply those analytical skills to writing computer code and building digital\nsystems.\n\nThese early lessons in discipline still help me manage strict deadlines today."
+        },
+        {
+          "id": "university",
+          "slug": "university",
+          "title": "University",
+          "order": 2,
+          "content": "I earned my Bachelor of Science in Software Engineering from the University of\nEngineering & Technology (UET) in 2022. UET gave me an excellent theoretical\nfoundation in core concepts like data structures, complex algorithms, and software\narchitecture.\n\nHowever, the real magic happened when I practiced my skills outside of the\nclassroom. By the time I graduated, I had already started working professionally\nand building real-world projects. The degree proved that I could understand very\ncomplex systems on paper, and my personal projects proved that I could actually\nbuild them.\n\nIt was a tough and demanding academic program, but it taught me deep discipline.\nIt showed me exactly how important engineering fundamentals are for a successful,\nlong-term career in tech.\n\nToday, I still use the problem-solving strategies I learned during those four\nimportant years at university. I am proud of the hard work I put in at UET because\nit completely shaped how I approach software development now."
+        }
+      ]
+    }
+  }
+}

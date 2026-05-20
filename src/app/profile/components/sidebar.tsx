@@ -15,12 +15,12 @@ const sidebarItems: {
 }[] = [
   {
     name: "Professional Experience",
-    href: "/profile/professional",
+    href: "/profile/professional" as Route,
     icon: RiTerminalBoxFill,
   },
   {
     name: "Personal Info",
-    href: "/profile/personal/overview",
+    href: "/profile/personal" as Route,
     icon: RiUser4Fill,
   },
   {
