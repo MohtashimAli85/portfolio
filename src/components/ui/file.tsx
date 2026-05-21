@@ -6,11 +6,11 @@ const FileContent = ({ children }: { children: React.ReactNode }) => {
     ...(children
       ?.toString()
       .split("\n")
-      .map((line) => ` * ${line}`) || []),
+      .map((line) => ` * ${line.trim()}`) || []),
     " */",
   ].map((text, index) => ({ lineNumber: index + 1, text }));
   return (
-    <div className="[counter-reset:line] whitespace-pre font-mono xl:text-lg text-theme-foreground">
+    <div className="[counter-reset:line] whitespace-pre-wrap font-mono xl:text-lg text-theme-foreground">
       {formattedLines.map((line) => (
         <div
           key={line.lineNumber}
