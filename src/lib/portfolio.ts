@@ -7,7 +7,7 @@ import {
 } from "@/types/portfolio";
 
 const portfolioData: PortfolioData = data as PortfolioData;
-const portfolioCategories = ["professional", "personal"] as const;
+const portfolioCategories = ["professional", "personal", "hobbies"] as const;
 
 export function isPortfolioCategory(
   category: string,
@@ -37,14 +37,12 @@ export function getCategoryFolders(category: CategoryType): PortfolioFolder[] {
 }
 
 export function getPortfolioItem(
-  category: CategoryType,
+  category: string,
   slug: string,
-): PortfolioItem | null {
-  return (
-    getCategoryFolders(category)
-      .flatMap((folder) => folder.items)
-      .find((item) => item.slug === slug) ?? null
-  );
+): PortfolioItem {
+  return getCategoryFolders(category as CategoryType)
+    .flatMap((folder) => folder.items)
+    .find((item) => item.slug === slug) as PortfolioItem;
 }
 
 export function getFirstPortfolioItem(

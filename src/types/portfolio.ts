@@ -26,6 +26,10 @@ export interface PortfolioData {
     interests: PortfolioCategoryFolder;
     education: PortfolioCategoryFolder;
   };
+  hobbies: {
+    overview: PortfolioCategoryFolder;
+    activities: PortfolioCategoryFolder;
+  };
 }
 
 export type CategoryType = keyof PortfolioData;
