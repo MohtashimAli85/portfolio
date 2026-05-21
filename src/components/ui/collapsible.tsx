@@ -12,6 +12,7 @@ import React, {
   HTMLAttributes,
   ReactNode,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -78,7 +79,9 @@ const CollapsibleBase = ({
 
     setOpen(isNowOpen);
   };
-
+  useEffect(() => {
+    if (defaultOpen) setOpen(defaultOpen);
+  }, [defaultOpen]);
   return (
     <CollapsibleContext.Provider
       value={{ open, onOpenChange: handleOpenChange }}
