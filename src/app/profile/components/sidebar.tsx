@@ -25,7 +25,7 @@ const sidebarItems: {
   },
   {
     name: "Hobbies",
-    href: "/profile/hobbies",
+    href: "/profile/hobbies" as Route,
     icon: RiGamepadFill,
   },
 ];
