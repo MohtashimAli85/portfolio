@@ -5,7 +5,6 @@ import {
   isPortfolioCategory,
 } from "@/lib/portfolio";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ category: string; slug: string }>;
@@ -36,15 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { category, slug } = await params;
-  if (!isPortfolioCategory(category)) {
-    notFound();
-  }
 
   const item = getPortfolioItem(category, slug);
-
-  if (!item) {
-    notFound();
-  }
 
   return (
     <div>
