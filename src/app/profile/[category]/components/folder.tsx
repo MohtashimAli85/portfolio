@@ -7,7 +7,7 @@ import useActivePath from "@/hooks/use-active-path";
 import { RiFolder2Fill, RiMarkdownFill } from "@remixicon/react";
 import { Route } from "next";
 import Link from "next/link";
-import { useTab } from "./tab";
+import { useTab } from "@/components/ui/tabs";
 export interface FolderItem {
   label: string;
   href: Route;

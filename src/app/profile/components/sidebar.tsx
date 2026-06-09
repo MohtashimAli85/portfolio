@@ -1,4 +1,5 @@
 "use client";
+import { useTab } from "@/components/ui/tabs";
 import useActivePath from "@/hooks/use-active-path";
 import {
   RemixiconComponentType,
@@ -15,17 +16,17 @@ const sidebarItems: {
 }[] = [
   {
     name: "Professional Experience",
-    href: "/profile/professional" as Route,
+    href: "/profile/professional/spark-ai" as Route,
     icon: RiTerminalBoxFill,
   },
   {
     name: "Personal Info",
-    href: "/profile/personal" as Route,
+    href: "/profile/personal/overview" as Route,
     icon: RiUser4Fill,
   },
   {
     name: "Hobbies",
-    href: "/profile/hobbies" as Route,
+    href: "/profile/hobbies/overview" as Route,
     icon: RiGamepadFill,
   },
 ];
@@ -49,7 +50,9 @@ const SidebarItem = ({
   href: Route;
   icon: RemixiconComponentType;
 }) => {
-  const { includes } = useActivePath();
+  const { includes, segments } = useActivePath();
+  const label = segments[2];
+  const { addTab } = useTab();
 
   const isActive = includes(href.split("/")[2]);
   return (
@@ -59,6 +62,12 @@ const SidebarItem = ({
         key={href}
         href={href}
         title={name}
+        onClick={() => {
+          addTab({
+            label,
+            value: href,
+          });
+        }}
       >
         <Icon
           data-active={isActive}
