@@ -7,6 +7,7 @@ import useActivePath from "@/hooks/use-active-path";
 import { RiFolder2Fill, RiMarkdownFill } from "@remixicon/react";
 import { Route } from "next";
 import Link from "next/link";
+import { useTab } from "./tab";
 export interface FolderItem {
   label: string;
   href: Route;
@@ -20,11 +21,11 @@ interface FolderProps {
 }
 
 const Folder = ({ label, color, files, hrefs }: FolderProps) => {
-  const { includes } = useActivePath();
+  const { includes, pathname } = useActivePath();
   const isActive = includes(hrefs);
   return (
     <CollapsibleSub defaultOpen={isActive}>
-      <CollapsibleSubTrigger>
+      <CollapsibleSubTrigger aria-activedescendant={pathname}>
         <div className="flex gap-2 items-center">
           <RiFolder2Fill
             className={`h-4 w-4 fill-current ${color}`}
@@ -45,11 +46,17 @@ export default Folder;
 const EditorFile = ({ href, label }: { href: Route; label: string }) => {
   const { exact } = useActivePath();
   const isActive = exact(href);
+  const { addTab, setActiveTab } = useTab();
+  const handleClick = () => {
+    addTab({ label, value: href });
+    setActiveTab(href);
+  };
   return (
     <Link
+      onClick={handleClick}
       href={href}
       data-active={isActive}
-      className="flex items-center gap-1 py-0.5 text-slate-400 hover:text-slate-300 transition-colors data-[active=true]:text-slate-300"
+      className="flex pl-7 items-center gap-1 py-0.5 text-slate-400 hover:text-slate-300 transition-colors data-[active=true]:text-slate-300 hover:bg-theme-foreground/20"
     >
       <RiMarkdownFill className="size-4" />
       <span>{label}</span>

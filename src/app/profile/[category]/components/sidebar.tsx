@@ -4,7 +4,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import Folder, { FolderItem } from "@/components/ui/folder";
+import Folder, { FolderItem } from "@/app/profile/[category]/components/folder";
 import { CategoryType, PortfolioFolder } from "@/types/portfolio";
 import { Route } from "next";
 
@@ -13,12 +13,12 @@ interface Props {
   folders: PortfolioFolder[];
 }
 
-const DynamicSidebar = ({ category, folders }: Props) => {
+export const Sidebar = ({ category, folders }: Props) => {
   return (
     <div className="border-r w-63 h-full border-theme-stroke shrink-0">
       <Collapsible defaultOpen>
         <CollapsibleTrigger>{category}-info</CollapsibleTrigger>
-        <CollapsibleContent className="mt-1 space-y-1">
+        <CollapsibleContent className="mt- space-y-1 ">
           {folders.map((folder) => {
             const files: FolderItem[] = folder.items.map((it) => ({
               href: `/profile/${category}/${it.slug}` as Route,
@@ -40,5 +40,3 @@ const DynamicSidebar = ({ category, folders }: Props) => {
     </div>
   );
 };
-
-export default DynamicSidebar;

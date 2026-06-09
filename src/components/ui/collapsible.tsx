@@ -184,7 +184,7 @@ function CollapsibleSubTrigger({
   return (
     <CollapsibleBaseTrigger
       className={cn(
-        "group-open/sub-collapsible:text-theme-heading-foreground text-theme-foreground",
+        "group-open/sub-collapsible:text-theme-heading-foreground text-theme-foreground pl-6 py-0.5 hover:bg-theme-foreground/20",
         className,
       )}
       {...props}
@@ -205,7 +205,7 @@ function CollapsibleContent({
   return (
     <div
       data-slot="collapsible-content"
-      className={cn("pl-6 py-3 mt-0.5", className)}
+      className={cn("", className)}
       {...props}
     >
       {children}
@@ -221,7 +221,7 @@ const CollapsibleSubContent = ({
   return (
     <div
       data-slot="collapsible-sub-content"
-      className={cn("pl-7", className)}
+      className={cn("", className)}
       {...props}
     >
       {children}
