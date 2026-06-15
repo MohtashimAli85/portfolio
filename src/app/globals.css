@@ -289,7 +289,7 @@
     @apply h-full overflow-hidden;
   }
   body {
-    @apply text-theme-heading-foreground  h-full;
+    @apply text-theme-heading-foreground  h-full p-1.5 md:p-8 bg-theme-backdrop;
   }
 }
 h1 {

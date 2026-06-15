@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fira_code.className} p-4 md:p-8 bg-theme-backdrop`}>
+      <body className={`${fira_code.className}`}>
         <Layout>{children}</Layout>
       </body>
     </html>
