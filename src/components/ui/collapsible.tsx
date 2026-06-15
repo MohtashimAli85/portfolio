@@ -163,6 +163,7 @@ function CollapsibleTrigger({
   return (
     <CollapsibleBaseTrigger
       className={cn(
+        "bg-slate-700 md:bg-theme-background",
         "py-3 px-6",
         "border-b border-theme-stroke",
         "group-open/collapsible:font-retina",
