@@ -15,7 +15,8 @@
     from 180deg at 50% 50%,
     var(--tw-gradient-stops)
   );
-
+  --font-weight-retina: 450;
+  /* Note: Google Fonts may snap 450 to 400 or 500 */
   /* ── Primitives ──────────────────────────────────────────────── */
 
   /* Slate */
@@ -288,6 +289,9 @@
     @apply h-full overflow-hidden;
   }
   body {
-    @apply text-white  h-full;
+    @apply text-theme-heading-foreground  h-full;
   }
+}
+h1 {
+  @apply p-6;
 }
