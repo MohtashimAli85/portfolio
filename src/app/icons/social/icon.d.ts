@@ -1,3 +1,3 @@
 declare interface IconProps {
-  className?: string;
+	className?: string;
 }

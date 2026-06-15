@@ -1,78 +1,78 @@
 "use client";
+import { useCallback, useRef, useState } from "react";
 import MenuIcon from "@/app/icons/social/MenuIcon";
 import { Button } from "@/components/ui/Button";
-import { useCallback, useRef, useState } from "react";
 import Item from "./nav-item";
 import navbarRoutes from "./routes";
 
 const MobileMenu = () => {
-  const [open, setOpen] = useState(false);
-  const [showItems, setShowItems] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const [open, setOpen] = useState(false);
+	const [showItems, setShowItems] = useState(false);
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleToggle = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
+	const handleToggle = () => {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+			timeoutRef.current = null;
+		}
 
-    const newOpen = !open;
-    setOpen(newOpen);
+		const newOpen = !open;
+		setOpen(newOpen);
 
-    timeoutRef.current = setTimeout(() => {
-      setShowItems(newOpen);
-      timeoutRef.current = null;
-    }, 600);
-  };
+		timeoutRef.current = setTimeout(() => {
+			setShowItems(newOpen);
+			timeoutRef.current = null;
+		}, 600);
+	};
 
-  const handleClose = useCallback(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-    setOpen(false);
-    timeoutRef.current = setTimeout(() => {
-      setShowItems(false);
-      timeoutRef.current = null;
-    }, 600);
-  }, []);
+	const handleClose = useCallback(() => {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+			timeoutRef.current = null;
+		}
+		setOpen(false);
+		timeoutRef.current = setTimeout(() => {
+			setShowItems(false);
+			timeoutRef.current = null;
+		}, 600);
+	}, []);
 
-  const menuRef = useRef<HTMLUListElement>(null);
+	const menuRef = useRef<HTMLUListElement>(null);
 
-  return (
-    <>
-      <Button
-        aria-expanded={open}
-        className="px-4.5 relative z-20 lg:hidden h-full aria-expanded:[&>svg]:text-primary-background"
-        onClick={handleToggle}
-      >
-        <MenuIcon />
-      </Button>
-      <div
-        style={{
-          clipPath: `inset(0% 0% ${open ? "0%" : "100%"} 0%)`,
-        }}
-        className="left-4.25 top-4.25 h-[calc(100%-34px)] z-10 transition-[clip-path] duration-1200 ease-in-out-quart fixed bottom-0 w-[calc(100vw-34px)] mx-auto bg-primary-inverted rounded-lg will-change-[clip-path]"
-      ></div>
-      <ul
-        ref={menuRef}
-        className={`   top-18.5  fixed  h-[calc(100vh-141px)] inset-0 md:hidden grid place-content-center gap-4 ${
-          showItems ? "opacity-100 z-20" : "opacity-0 -z-10 "
-        }        `}
-      >
-        {navbarRoutes.map((route, index) => (
-          <Item
-            key={route.href}
-            route={route}
-            onClick={handleClose}
-            isMobile
-            delay={open ? 600 + index * 100 + "ms" : "0ms"}
-            open={open}
-          />
-        ))}
-      </ul>
-    </>
-  );
+	return (
+		<>
+			<Button
+				aria-expanded={open}
+				className="px-4.5 relative z-20 lg:hidden h-full aria-expanded:[&>svg]:text-primary-background"
+				onClick={handleToggle}
+			>
+				<MenuIcon />
+			</Button>
+			<div
+				style={{
+					clipPath: `inset(0% 0% ${open ? "0%" : "100%"} 0%)`,
+				}}
+				className="left-4.25 top-4.25 h-[calc(100%-34px)] z-10 transition-[clip-path] duration-1200 ease-in-out-quart fixed bottom-0 w-[calc(100vw-34px)] mx-auto bg-primary-inverted rounded-lg will-change-[clip-path]"
+			></div>
+			<ul
+				ref={menuRef}
+				className={`   top-18.5  fixed  h-[calc(100vh-141px)] inset-0 md:hidden grid place-content-center gap-4 ${
+					showItems ? "opacity-100 z-20" : "opacity-0 -z-10 "
+				}        `}
+			>
+				{navbarRoutes.map((route, index) => (
+					<Item
+						key={route.href}
+						route={route}
+						onClick={handleClose}
+						isMobile
+						delay={open ? 600 + index * 100 + "ms" : "0ms"}
+						open={open}
+					/>
+				))}
+			</ul>
+		</>
+	);
 };
 
 export default MobileMenu;

@@ -1,17 +1,18 @@
-import { FC, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import Footer from "./Footer";
 import Header from "./header";
+
 interface Props {
-  children: ReactNode;
+	children: ReactNode;
 }
 const Layout: FC<Props> = ({ children }) => {
-  return (
-    <div className="border border-theme-stroke rounded-lg h-full flex flex-col justify-between bg-theme-background">
-      <Header />
-      <main className="flex-1 bg-primary">{children}</main>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="border border-theme-stroke rounded-lg h-full flex flex-col justify-between bg-theme-background">
+			<Header />
+			<main className="flex-1 bg-primary overflow-auto">{children}</main>
+			<Footer />
+		</div>
+	);
 };
 
 export default Layout;

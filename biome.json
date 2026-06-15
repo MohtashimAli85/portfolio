@@ -3,7 +3,7 @@
 	"vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
 	"files": { "ignoreUnknown": false },
 	"formatter": { "enabled": true, "indentStyle": "tab" },
-	"linter": { "enabled": true, "rules": { "preset": "none" } },
+	"linter": { "enabled": true, "rules": { "preset": "recommended" } },
 	"javascript": { "formatter": { "quoteStyle": "double" } },
 	"overrides": [
 		{ "includes": ["*.ts", "*.tsx"] },
