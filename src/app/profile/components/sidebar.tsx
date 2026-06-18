@@ -9,6 +9,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import { useTab } from "@/components/ui/tabs";
 import useActivePath from "@/hooks/use-active-path";
+import { getRouteSegments } from "@/lib/utils";
 
 const sidebarItems: {
 	name: string;
@@ -51,8 +52,8 @@ const SidebarItem = ({
 	href: Route;
 	icon: RemixiconComponentType;
 }) => {
-	const { includes, segments } = useActivePath();
-	const label = segments[2];
+	const { includes } = useActivePath();
+	const label = getRouteSegments(href)[2];
 	const { addTab } = useTab();
 
 	const isActive = includes(href.split("/")[2]);
