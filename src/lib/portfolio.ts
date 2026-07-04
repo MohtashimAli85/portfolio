@@ -1,69 +1,46 @@
 import data from "@/data/portfolio-content.json";
-import {
-  CategoryType,
-  PortfolioData,
-  PortfolioFolder,
-  PortfolioItem,
-} from "@/types/portfolio";
 
-const portfolioData: PortfolioData = data as PortfolioData;
-const portfolioCategories = ["professional", "personal", "hobbies"] as const;
+// 1. The raw profile object
+export const profileData = data.profile;
+export type ProfileData = typeof profileData;
+// 2. The profile data as an array of [category, folderData]
+export const profileDataList = Object.entries(profileData);
 
-export function isPortfolioCategory(
-  category: string,
-): category is CategoryType {
-  return portfolioCategories.includes(category as CategoryType);
-}
+// 3. Simple array of your categories
+export type ProfileCategories = keyof ProfileData;
+export const profileCategories: ProfileCategories[] = [
+	"professional",
+	"personal",
+	"hobbies",
+];
+// 4. All items from all categories mixed into one flat array
+export const allProfileItems = Object.entries(profileData).flatMap(
+	([category, categoryData]) =>
+		Object.values(categoryData)
+			.flatMap((folderData) => folderData.items)
+			.map((item) => ({ ...item, category: category as ProfileCategories })),
+);
+// 5. All slugs for static page generation (Next.js)
+export const allProfileSlugs = allProfileItems.map((item) => ({
+	category: item.category,
+	slug: item.slug,
+}));
 
-export function getPortfolioCategories(): CategoryType[] {
-  return [...portfolioCategories];
-}
+// 6. Hashmap: profileItemMap[category][slug] → item
+export type ProfileItem = (typeof allProfileItems)[number];
+export const profileItemMap = Object.fromEntries(
+	profileCategories.map((cat) => [
+		cat,
+		Object.fromEntries(
+			allProfileItems.filter((i) => i.category === cat).map((i) => [i.slug, i]),
+		),
+	]),
+);
 
-export function getCategoryFolders(category: CategoryType): PortfolioFolder[] {
-  const categoryData = portfolioData[category];
+// Distributive helper: gets union of all folder value types across every category
+type ProfileFolders<C extends ProfileCategories = ProfileCategories> =
+	C extends ProfileCategories
+		? (typeof profileData)[C][keyof (typeof profileData)[C]]
+		: never;
 
-  return Object.entries(categoryData).map(([folderName, folderData]) => {
-    const items = [...folderData.items].sort(
-      (a, b) => (a.order ?? 0) - (b.order ?? 0),
-    );
-
-    return {
-      folderName,
-      name: folderData.name,
-      color: folderData.color,
-      items,
-    };
-  });
-}
-
-export function getPortfolioItem(
-  category: string,
-  slug: string,
-): PortfolioItem {
-  return getCategoryFolders(category as CategoryType)
-    .flatMap((folder) => folder.items)
-    .find((item) => item.slug === slug) as PortfolioItem;
-}
-
-export function getFirstPortfolioItem(
-  category: CategoryType,
-): PortfolioItem | null {
-  return getCategoryFolders(category)[0]?.items[0] ?? null;
-}
-
-export function getAllSlugs(category: CategoryType): Array<{ slug: string }> {
-  return getCategoryFolders(category).flatMap((folder) =>
-    folder.items.map((item) => ({ slug: item.slug })),
-  );
-}
-
-export function getAllPortfolioParams(): Array<{
-  category: CategoryType;
-  slug: string;
-}> {
-  return portfolioCategories.flatMap((category) =>
-    getAllSlugs(category).map(({ slug }) => ({ category, slug })),
-  );
-}
-
-export { portfolioData };
+export type ProfileSlugs = ProfileFolders["items"][number]["slug"];
