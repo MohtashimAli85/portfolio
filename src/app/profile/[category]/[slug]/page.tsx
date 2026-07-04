@@ -1,46 +1,37 @@
+import type { Metadata } from "next";
 import { FileContent } from "@/components/ui/file";
 import {
-  getAllPortfolioParams,
-  getPortfolioItem,
-  isPortfolioCategory,
+	allProfileSlugs,
+	type ProfileCategories,
+	profileItemMap,
 } from "@/lib/portfolio";
-import type { Metadata } from "next";
 
 type Props = {
-  params: Promise<{ category: string; slug: string }>;
+	params: Promise<{ category: ProfileCategories; slug: string }>;
 };
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return getAllPortfolioParams();
+	return allProfileSlugs;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category, slug } = await params;
-  if (!isPortfolioCategory(category)) {
-    return {
-      title: "Portfolio",
-    };
-  }
+	const { category, slug } = await params;
 
-  const item = getPortfolioItem(category, slug);
-  const description = item?.content.replace(/\s+/g, " ").slice(0, 160);
+	const item = profileItemMap[category][slug];
+	const description = item?.content.replace(/\s+/g, " ").slice(0, 160);
 
-  return {
-    title: item?.title || "Portfolio",
-    description,
-  };
+	return {
+		title: item?.title || "Portfolio",
+		description,
+	};
 }
 
 export default async function Page({ params }: Props) {
-  const { category, slug } = await params;
+	const { category, slug } = await params;
 
-  const item = getPortfolioItem(category, slug);
+	const item = profileItemMap[category][slug];
 
-  return (
-    <div>
-      <FileContent>{item.content}</FileContent>
-    </div>
-  );
+	return <FileContent>{item?.content}</FileContent>;
 }

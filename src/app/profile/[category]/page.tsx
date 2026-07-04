@@ -1,28 +1,9 @@
-import {
-  getFirstPortfolioItem,
-  getPortfolioCategories,
-  isPortfolioCategory,
-} from "@/lib/portfolio";
-import { notFound, redirect } from "next/navigation";
-
-type Props = {
-  params: Promise<{ category: string }>;
-};
+import { profileCategories } from "@/lib/portfolio";
 
 export function generateStaticParams() {
-  return getPortfolioCategories().map((category) => ({ category }));
+	return profileCategories.map((category) => ({ category }));
 }
 
-export default async function CategoryPage({ params }: Props) {
-  const { category } = await params;
-  if (!isPortfolioCategory(category)) {
-    notFound();
-  }
-
-  const firstItem = getFirstPortfolioItem(category);
-  if (!firstItem) {
-    notFound();
-  }
-
-  redirect(`/profile/${category}/${firstItem.slug}`);
+export default function CategoryPage() {
+	return <>What you looking for?</>;
 }

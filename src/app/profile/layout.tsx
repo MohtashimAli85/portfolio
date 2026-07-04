@@ -1,14 +1,9 @@
-import { cookies } from "next/headers";
-import { Sidebar } from "./components/sidebar";
 import { TabProvider } from "@/components/ui/tabs";
+import { Sidebar } from "./components/sidebar";
 
 const AboutMeLayout = async ({ children }: { children: React.ReactNode }) => {
-	const defaultTabsString = (await cookies()).get("profile_tabList")?.value;
-	const defaultTabs = defaultTabsString
-		? JSON.parse(defaultTabsString)
-		: undefined;
 	return (
-		<TabProvider defaultTabs={defaultTabs}>
+		<TabProvider>
 			<div className="flex h-full">
 				<Sidebar />
 				{children}
