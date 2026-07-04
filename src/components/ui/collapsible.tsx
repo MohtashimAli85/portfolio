@@ -245,8 +245,6 @@ const CollapsibleItem = ({
 	);
 };
 
-// ─── Hook (for consumers who need raw state) ─────────────────────────────────
-
 export {
 	Collapsible,
 	CollapsibleContent,
