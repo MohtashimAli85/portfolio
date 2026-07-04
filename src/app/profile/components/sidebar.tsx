@@ -34,7 +34,7 @@ const sidebarItems: {
 ];
 export const Sidebar = () => {
 	return (
-		<aside className="w-17.25 shrink-0 border-r border-theme-stroke py-3 hidden md:block">
+		<aside className="w-17 shrink-0 border-r border-theme-stroke py-3 hidden md:block">
 			<ul className="flex flex-col items-center gap-6 ">
 				{sidebarItems.map((item) => (
 					<SidebarItem key={item.href} {...item} />
