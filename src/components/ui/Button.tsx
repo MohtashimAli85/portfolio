@@ -1,20 +1,16 @@
-import React, { forwardRef } from "react";
+import type React from "react";
+import { forwardRef } from "react";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: string;
-  size?: string;
+export interface ButtonProps
+	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	variant?: string;
+	size?: string;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    return (
-      <button
-        className={className}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
+	({ className, variant, size, ...props }, ref) => {
+		return <button className={className} ref={ref} {...props} />;
+	},
 );
 
 Button.displayName = "Button";
