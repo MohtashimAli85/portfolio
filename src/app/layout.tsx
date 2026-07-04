@@ -9,7 +9,10 @@ const fira_code = Fira_Code({
 });
 
 export const metadata: Metadata = {
-	title: "Mohtashim Ali | Portfolio",
+	title: {
+		default: "Mohtashim Ali",
+		template: "%s | Mohtashim Ali",
+	},
 	description: "Developed by Mohtashim Ali",
 };
 
