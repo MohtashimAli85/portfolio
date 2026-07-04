@@ -14,7 +14,7 @@ const CategoryLayout = async ({
 	const { category } = await params;
 
 	return (
-		<div className="md:flex size-full min-w-0 overflow-hidden">
+		<div className="md:flex min-w-0">
 			<Sidebar category={category as ProfileCategories} />
 			<div className="flex-1 min-w-0">
 				<TabList />
