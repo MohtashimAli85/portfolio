@@ -70,13 +70,13 @@ const FileContent = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div
 			ref={containerRef}
-			className="[counter-reset:line] font-mono text-sm md:text-base text-theme-foreground w-full"
+			className="[counter-reset:line] font-mono text-sm md:text-base xl:text-lg text-theme-foreground w-full"
 		>
 			{/* invisible ruler — measures one monospace character */}
 			<span
 				ref={rulerRef}
 				aria-hidden
-				className="absolute opacity-0 pointer-events-none font-mono text-sm md:text-base"
+				className="absolute opacity-0 pointer-events-none font-mono text-sm md:text-base xl:text-lg"
 			>
 				m
 			</span>
