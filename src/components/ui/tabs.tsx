@@ -103,7 +103,6 @@ export const TabProvider = ({ children }: TabProviderProps) => {
 			? tabListMap[activeModule]?.[activeCategory]
 			: fallbackTabList
 		: [];
-	console.log({ tabListMap });
 	return (
 		<TabContext.Provider
 			value={{
